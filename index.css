@@ -3,6 +3,7 @@
   border: 1px solid black;
   border-radius: 5px;
   justify-content: space-between;
+  background-color: rgb(209, 194, 223);
 }
 .header > img {
   width: 100px;
@@ -39,4 +40,8 @@
 
 .app {
   margin: 10px;
+}
+
+.filter-btn {
+  margin: 5px;
 }
