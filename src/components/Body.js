@@ -1,31 +1,28 @@
 import ResCart from "./ResCart";
-import { RES_API } from "../utils/constant";
-import { useState, useEffect } from "react";
 import Shimmer from "./shimmer";
 import { Link } from "react-router-dom";
+import useRestaurantData from "../utils/useRestaurantData";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
-  const [resListItems, setResListItems] = useState([]);
-  const [filteredRestaurant, setFilteredRestaurants] = useState([]);
-  const [searchText, setSearchText] = useState("");
+  const {
+    resListItems,
+    filteredRestaurant,
+    searchText,
+    searching,
+    handleSearch,
+    handleFilterTopRated,
+  } = useRestaurantData();
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const onlineStatus = useOnlineStatus();
 
-  const fetchData = async () => {
-    const data = await fetch(RES_API);
-    const swiggyData = await data.json();
-
-    setResListItems(
-      swiggyData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
+  if (onlineStatus === false) {
+    return (
+      <h1>
+        Looks like you are offline!! Please Check your Internet Connection!!!
+      </h1>
     );
-    setFilteredRestaurants(
-      swiggyData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
-  };
+  }
 
   return resListItems.length === 0 ? (
     <Shimmer />
@@ -36,30 +33,11 @@ const Body = () => {
           <input
             className="search-bar"
             value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
+            onChange={searching}
           />
-          <button
-            onClick={() => {
-              const filteredRes = resListItems.filter((filteres) =>
-                filteres.info.name
-                  .toLowerCase()
-                  .includes(searchText.toLowerCase())
-              );
-              setFilteredRestaurants(filteredRes);
-            }}
-          >
-            Search
-          </button>
+          <button onClick={handleSearch}>Search</button>
         </div>
-        <button
-          className="filter-btn"
-          onClick={() => {
-            const filteredList = resListItems.filter(
-              (res) => res.info.avgRating > 4.0
-            );
-            setFilteredRestaurants(filteredList);
-          }}
-        >
+        <button className="filter-btn" onClick={handleFilterTopRated}>
           Filter Top Rated Restaurant
         </button>
       </div>
