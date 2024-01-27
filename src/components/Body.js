@@ -1,5 +1,5 @@
 import ResCart from "./ResCart";
-import Shimmer from "./shimmer";
+import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useRestaurantData from "../utils/useRestaurantData";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -27,21 +27,29 @@ const Body = () => {
   return resListItems.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
-      <div className="filter">
-        <div className="search">
+    <div className="m-2 p-2 border border-black rounded-md ">
+      <div className="flex">
+        <div>
           <input
-            className="search-bar"
+            className="p-1 m-1 border hover:border-black rounded-md"
             value={searchText}
             onChange={searching}
           />
-          <button onClick={handleSearch}>Search</button>
+          <button
+            className="border p-1 m-1 hover:border-black rounded-md bg-green-200"
+            onClick={handleSearch}
+          >
+            Search
+          </button>
         </div>
-        <button className="filter-btn" onClick={handleFilterTopRated}>
+        <button
+          className="m-1 p-1 border hover:border-black rounded-md bg-green-200"
+          onClick={handleFilterTopRated}
+        >
           Filter Top Rated Restaurant
         </button>
       </div>
-      <div className="res-container">
+      <div className=" flex flex-wrap shadow-sm ">
         {filteredRestaurant.map((restaurant) => (
           <Link
             key={restaurant.info.id}

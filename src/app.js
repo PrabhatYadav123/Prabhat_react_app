@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
-import Shimmer from "./components/shimmer";
+import Shimmer from "./components/Shimmer";
 
 const About = lazy(() => import("./components/About"));
 const ContactUS = lazy(() => import("./components/ContactUS"));
