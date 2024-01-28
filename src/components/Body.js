@@ -36,7 +36,7 @@ const Body = () => {
             onChange={searching}
           />
           <button
-            className="border p-1 m-1 hover:border-black rounded-md bg-green-200"
+            className="border p-1 m-1 hover:border-black rounded-md bg-green-300"
             onClick={handleSearch}
           >
             Search
