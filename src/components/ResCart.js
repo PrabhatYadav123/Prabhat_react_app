@@ -16,4 +16,17 @@ const ResCart = (props) => {
   );
 };
 
+export const promotedResCart = (ResCart) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute bg-black text-white rounded-lg p-2 m-2">
+          Promoted
+        </label>
+        <ResCart {...props} />
+      </div>
+    );
+  };
+};
+
 export default ResCart;

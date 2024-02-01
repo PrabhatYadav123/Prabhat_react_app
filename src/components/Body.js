@@ -1,8 +1,11 @@
-import ResCart from "./ResCart";
+import { useContext } from "react";
+import ResCart, { promotedResCart } from "./ResCart";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useRestaurantData from "../utils/useRestaurantData";
 import useOnlineStatus from "../utils/useOnlineStatus";
+
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const {
@@ -13,8 +16,10 @@ const Body = () => {
     handleSearch,
     handleFilterTopRated,
   } = useRestaurantData();
+  const { userName, setUserName } = useContext(UserContext);
 
   const onlineStatus = useOnlineStatus();
+  const ResCartPromoted = promotedResCart(ResCart);
 
   if (onlineStatus === false) {
     return (
@@ -48,6 +53,13 @@ const Body = () => {
         >
           Filter Top Rated Restaurant
         </button>
+        <input
+          className="p-1 m-1 border hover:border-black rounded-md"
+          value={userName}
+          onChange={(e) => {
+            setUserName(e.target.value);
+          }}
+        />
       </div>
       <div className=" flex flex-wrap shadow-sm ">
         {filteredRestaurant.map((restaurant) => (
@@ -55,7 +67,11 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurant/" + restaurant.info.id}
           >
-            <ResCart ResData={restaurant} />
+            {restaurant.info.avgRating < 4.3 ? (
+              <ResCartPromoted ResData={restaurant} />
+            ) : (
+              <ResCart ResData={restaurant} />
+            )}
           </Link>
         ))}
       </div>
