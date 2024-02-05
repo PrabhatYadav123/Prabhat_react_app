@@ -3,10 +3,12 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 const Header = () => {
   const [login, setLogin] = useState("Login");
   const onlineStatus = useOnlineStatus();
   const { userName } = useContext(UserContext);
+  const storeData = useSelector((store) => store.cart.items);
   return (
     <div className="flex justify-between border border-black bg-slate-300 m-2 p-1 shadow-md box-border rounded-md hover:bg-green-200">
       <img src={LOGO_URL} alt="logo" className="w-24 mix-blend-multiply" />
@@ -26,7 +28,10 @@ const Header = () => {
             <Link to="/contact">Contact Us</Link>
           </li>
 
-          <li className="px-1">Cart</li>
+          <li className="px-1">
+            {" "}
+            <Link to="/cart">Cart -({storeData.length} items)</Link>
+          </li>
           <button
             className="login"
             onClick={() =>
