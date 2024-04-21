@@ -12,18 +12,18 @@ function RestaurantMenu() {
   }
 
   const { itemCards } =
-    menuData?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
+    menuData?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
       ?.card;
 
   const categories =
-    menuData?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+    menuData?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
         c.card.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
 
   const { name, cuisines, costForTwoMessage } =
-    menuData?.cards[0]?.card?.card?.info;
+    menuData?.cards[2]?.card?.card?.info;
 
   return (
     <div>

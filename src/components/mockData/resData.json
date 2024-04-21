@@ -1,0 +1,70 @@
+{
+  "info": {
+    "id": "125956",
+    "name": "Glen's Bakehouse",
+    "cloudinaryImageId": "whfviizdgvwg0uwfk8dy",
+    "locality": "6th Block",
+    "areaName": "Koramangala",
+    "costForTwo": "₹500 for two",
+    "cuisines": ["Desserts", "Bakery", "Beverages", "Continental", "Italian"],
+    "avgRating": 4.5,
+    "parentId": "3220",
+    "avgRatingString": "4.5",
+    "totalRatingsString": "5K+",
+    "sla": {
+      "deliveryTime": 25,
+      "lastMileTravel": 0.7,
+      "serviceability": "SERVICEABLE",
+      "slaString": "20-25 mins",
+      "lastMileTravelString": "0.7 km",
+      "iconType": "ICON_TYPE_EMPTY"
+    },
+    "availability": {
+      "nextCloseTime": "2024-02-12 01:00:00",
+      "opened": true
+    },
+    "badges": {
+      "imageBadges": [
+        {
+          "imageId": "newg.png",
+          "description": "Gourmet"
+        }
+      ]
+    },
+    "isOpen": true,
+    "aggregatedDiscountInfoV2": {},
+    "type": "F",
+    "badgesV2": {
+      "entityBadges": {
+        "imageBased": {
+          "badgeObject": [
+            {
+              "attributes": {
+                "description": "Gourmet",
+                "imageId": "newg.png"
+              }
+            }
+          ]
+        },
+        "textBased": {},
+        "textExtendedBadges": {}
+      }
+    },
+    "differentiatedUi": {
+      "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+      "differentiatedUiMediaDetails": {
+        "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+        "lottie": {},
+        "video": {}
+      }
+    },
+    "reviewsSummary": {},
+    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+    "restaurantOfferPresentationInfo": {}
+  },
+  "analytics": {},
+  "cta": {
+    "link": "https://www.swiggy.com/restaurants/glens-bakehouse-6th-block-koramangala-bangalore-125956",
+    "type": "WEBLINK"
+  }
+}
