@@ -47,6 +47,7 @@ const Body = () => {
             Search
           </button>
         </div>
+              <h1>Hello Prabhat</h1>
         <button
           className="m-1 p-1 border hover:border-black rounded-md bg-green-200"
           onClick={handleFilterTopRated}
