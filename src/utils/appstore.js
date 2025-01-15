@@ -8,3 +8,4 @@ const appStore = configureStore({
 });
 
 export default appStore;
+export const hi="I am Prabhat"
